@@ -1,0 +1,302 @@
+* {
+    text-decoration: none;    
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-color: #f3f3f3;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.4;
+}
+
+/* Mobile-First Responsive Design: HEADER STYLING */
+
+header {
+    grid-area: header;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.header-logo {
+    flex: 1 1 100%; /* Take full width on mobile */
+    text-align: center;
+}
+
+header .logo-img {
+    /* width: 40%; */
+    width: 150px; /* Adjust logo size */
+}
+
+header nav {
+    flex: 1 1 100%;
+    /* text-align: center; */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header nav ul li a{
+    font-size: 16px;
+    color: #182E67;
+    font-weight: 600;
+}
+
+header .header-signup {
+    display: none;
+    /* text-decoration: none;
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    white-space: nowrap; */
+}
+
+/* Desktop Responsive Design: HEADER STYLING */
+
+@media (min-width: 768px) {
+    
+    header {
+        flex-wrap: nowrap; /* Keep items in one row on desktop */        
+    }
+
+    .header-logo {
+        text-align: left;
+        padding-left: 20px;
+        flex: 1 1 200px;
+        border-right: 2px solid #01BDD6; 
+    }
+    
+    header nav ul {
+        justify-self: start;
+        padding: 0;
+        margin: 10px;    
+    }
+
+    header nav ul li {
+        margin: 20px;    
+    }
+    
+    header nav ul li a{
+        font-size: 20px;
+        color: #182E67;
+        font-weight: 600;
+    }
+    
+    header .header-signup {
+        display: none;
+    }
+}
+
+/* Mobile-First Responsive Design: HERO SECTION STYLING*/
+
+.landing-hero {
+    grid-area: hero;
+    display: flex;
+    flex-flow: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-image: url("./img/hero-section-africans.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+}
+
+h1.hero-heading  {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-size: 2rem; */
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 1px 1px 4px #111111;
+    text-transform: uppercase;
+    width: 350px;
+}
+
+h2.hero-subheading {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-size: 1.7rem; */
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 1px 2px 8px #111111;
+    width: 450px;
+}
+
+button.hero-cta {
+    width: 30%;
+    height: 48px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #01BDD6;
+    color: #111111;
+}
+
+@media (min-width: 768px) {
+    .landing-hero {
+        height: 500px;
+    }
+
+    h1.hero-heading {
+        font-size: 3rem;
+        width: 650px;
+    }
+
+    h2.hero-subheading {
+        font-size: 1.5rem;
+        width: 600px;
+    }
+
+    button.hero-cta {
+        width: 10%;
+        /* padding: 5px 5px; */
+    }
+}
+
+/* Mobile-First Responsive Design: FEATURES SECTION STYLING*/
+
+h2.features-heading {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.landing-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "hero"
+    "features"
+    "footer";
+}
+
+.landing-features {
+    grid-area: features;
+    display: flex;
+    flex-flow: wrap;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.feature-item {
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+img.feature-img {
+    max-width: 100%;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.6;
+}
+
+h3.feature-title {
+    color: #111111;
+}
+
+h3.contact-title {
+    color: #ffffff;
+}
+
+p.feature-description {
+    text-align: justify;
+}
+
+.grid-item {
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+header.grid-item {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    
+    .landing-features {
+        flex-wrap: nowrap; /* Keep items in one row on desktop */  
+    }
+
+    img.feature-img {
+        /* width: 200px; */
+        width: 400px;
+        /* height: 150px; */
+        height: 300px;
+        text-align: center;
+        /* float: left; */
+    }
+    
+    h2.features-heading {
+        font-size: 2rem;
+    }
+
+    /* h3.feature-title {
+        float: left;
+        margin-left: 20px;
+        width: 80px;
+    } */
+
+    /* .feature-item p {
+        margin: 20px 0;
+        padding: 20px 0;
+        clear: both;
+    } */
+}
+
+/* Mobile-First Responsive Design: FOOTER SECTION STYLING*/
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: #333;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+footer.grid-item {
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+footer ul li {
+    list-style: none;    
+}
+
+footer a {
+    color:#f3f3f3;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+
+    footer {
+        font-size: 20px;
+    }
+
+    h3.contact-title {
+        font-size: 1.5rem;
+    }
+}
