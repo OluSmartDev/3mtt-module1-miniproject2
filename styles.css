@@ -10,12 +10,33 @@ body {
     line-height: 1.4;
 }
 
-/* Mobile-First Responsive Design: HEADER STYLING */
+/* BODY: Mobile-First Responsive Design:*/
+.landing-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "hero"
+    "features"
+    "footer";
+}
 
+.grid-item {
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* HEADER: Mobile-First Responsive Design:*/
 header {
     grid-area: header;
     background-color: #ffffff;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     display: flex;
     flex-flow: wrap;
@@ -23,19 +44,21 @@ header {
     align-items: center;
 }
 
+header.grid-item {
+    margin-bottom: 0;
+}
+
 .header-logo {
-    flex: 1 1 100%; /* Take full width on mobile */
+    flex: 1 1 100%; 
     text-align: center;
 }
 
 header .logo-img {
-    /* width: 40%; */
-    width: 150px; /* Adjust logo size */
+    max-width: 40%;
 }
 
 header nav {
     flex: 1 1 100%;
-    /* text-align: center; */
 }
 
 header nav ul {
@@ -52,29 +75,26 @@ header nav ul li a{
 
 header .header-signup {
     display: none;
-    /* text-decoration: none;
-    background-color: #007bff; 
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    white-space: nowrap; */
 }
 
-/* Desktop Responsive Design: HEADER STYLING */
-
+/* HEADER: Desktop Responsive Design:*/
 @media (min-width: 768px) {
     
     header {
-        flex-wrap: nowrap; /* Keep items in one row on desktop */        
+        flex-wrap: nowrap;      
     }
 
     .header-logo {
         text-align: left;
-        padding-left: 20px;
+        padding: 0 20px;
         flex: 1 1 200px;
         border-right: 2px solid #01BDD6; 
     }
     
+    header .logo-img {
+        max-width: 100%;
+    }
+
     header nav ul {
         justify-self: start;
         padding: 0;
@@ -96,15 +116,14 @@ header .header-signup {
     }
 }
 
-/* Mobile-First Responsive Design: HERO SECTION STYLING*/
-
-.landing-hero {
+/* HERO: Mobile-First Responsive Design:*/
+section.hero {
     grid-area: hero;
     display: flex;
-    flex-flow: column;
+    flex-flow: wrap;
     justify-content:space-around;
     align-items: center;
-    width: 100%;
+    max-width: 100vw;
     height: calc(100vh - 100px);
     background-image: url("./img/hero-section-africans.jpg");
     background-repeat: no-repeat;
@@ -115,7 +134,6 @@ header .header-signup {
 
 h1.hero-heading  {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* font-size: 2rem; */
     font-weight: 900;
     text-align: center;
     text-shadow: 1px 1px 4px #111111;
@@ -125,7 +143,6 @@ h1.hero-heading  {
 
 h2.hero-subheading {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /* font-size: 1.7rem; */
     font-weight: 100;
     font-style: italic;
     text-align: center;
@@ -145,8 +162,10 @@ button.hero-cta {
     color: #111111;
 }
 
+/* HERO: Desktop Responsive Design:*/
 @media (min-width: 768px) {
-    .landing-hero {
+    section.hero {
+        flex-flow: column;
         height: 500px;
     }
 
@@ -162,28 +181,16 @@ button.hero-cta {
 
     button.hero-cta {
         width: 10%;
-        /* padding: 5px 5px; */
     }
 }
 
-/* Mobile-First Responsive Design: FEATURES SECTION STYLING*/
-
+/* FEATURES: Mobile-First Responsive Design:*/
 h2.features-heading {
     text-align: center;
     margin: 10px 0;
 }
 
-.landing-grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "header"
-    "hero"
-    "features"
-    "footer";
-}
-
-.landing-features {
+.features-wrapper {
     grid-area: features;
     display: flex;
     flex-flow: wrap;
@@ -200,69 +207,37 @@ img.feature-img {
     max-width: 100%;
 }
 
-h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.6;
-}
-
 h3.feature-title {
     color: #111111;
-}
-
-h3.contact-title {
-    color: #ffffff;
 }
 
 p.feature-description {
     text-align: justify;
 }
 
-.grid-item {
-    margin-bottom: 10px;
-    padding: 0 10px;
-}
-
-header.grid-item {
-    margin-bottom: 0;
-    padding: 0;
-}
-
+/* FEATURES: Desktop Responsive Design:*/
 @media (min-width: 768px) {
-    
-    .landing-features {
-        flex-wrap: nowrap; /* Keep items in one row on desktop */  
-    }
 
-    img.feature-img {
-        /* width: 200px; */
-        width: 400px;
-        /* height: 150px; */
-        height: 300px;
-        text-align: center;
-        /* float: left; */
-    }
-    
     h2.features-heading {
         font-size: 2rem;
     }
+    
+    .features-wrapper {
+        flex-wrap: nowrap;
+    }
 
-    /* h3.feature-title {
-        float: left;
-        margin-left: 20px;
-        width: 80px;
-    } */
+    .feature-img-wrapper {
+        text-align: center;
+    }
 
-    /* .feature-item p {
-        margin: 20px 0;
-        padding: 20px 0;
-        clear: both;
-    } */
+    img.feature-img {
+        max-width: 400px;
+        max-height: 300px;
+    }
+   
 }
 
-/* Mobile-First Responsive Design: FOOTER SECTION STYLING*/
-
+/* FOOTER: Mobile-First Responsive Design:*/
 footer {
     grid-area: footer;
     display: flex;
@@ -274,9 +249,12 @@ footer {
     margin-bottom: 0px;
 }
 
+footer .contact-title {
+    color: #ffffff;
+}
+
 footer.grid-item {
     margin-bottom: 0;
-    padding: 10px 0;
 }
 footer ul li {
     list-style: none;    
@@ -290,6 +268,7 @@ footer p {
     margin-top: 10px;
 }
 
+/* FOOTER: Desktop Responsive Design:*/
 @media (min-width: 768px) {
 
     footer {
