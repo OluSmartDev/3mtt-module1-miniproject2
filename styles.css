@@ -7,7 +7,9 @@
 body {
     background-color: #f3f3f3;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
     line-height: 1.4;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -17,6 +19,28 @@ body {
     "footer";
 }
 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    body {
+      padding: 20px;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+      padding: 30px;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
 .grid-item {
     margin-bottom: 10px;
 }
@@ -38,82 +62,106 @@ header {
     flex-wrap: wrap;
     justify-content:space-around;
     align-items: center;
-}
-
-header.grid-item {
     margin-bottom: 0;
 }
 
-.header-logo {
+.header-wrapper {
     flex: 1 1 100%; 
     text-align: center;
 }
 
-header .logo-img {
-    max-width: 40%;
+.header-logo {
+    /* max-width: 40%; */
+    max-width: 150px;
 }
 
-header nav {
+.header-nav {
     flex: 1 1 100%;
 }
 
-header nav ul {
+.header-nav ul {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
 }
 
-header nav ul li a{
+.header-nav ul li a{
     font-size: 16px;
     color: #182E67;
     font-weight: 600;
 }
 
-header .header-signup {
-    display: none;
-}
-
 /* HEADER: Desktop Responsive Design:*/
 @media (min-width: 768px) {
-    
+
     header {
         flex-wrap: nowrap;      
     }
 
-    .header-logo {
+    .header-wrapper {
         text-align: left;
         padding: 0 20px;
         flex: 1 1 200px;
         border-right: 2px solid #01BDD6; 
     }
     
-    header .logo-img {
+    .header-logo {
         max-width: 100%;
     }
 
-    header nav ul {
+    .header-nav ul {
         justify-self: start;
         padding: 0;
         margin: 10px;    
     }
 
-    header nav ul li {
+    .header-nav ul li {
         margin: 20px;    
     }
     
-    header nav ul li a{
+    .header-nav ul li a{
         font-size: 20px;
         color: #182E67;
         font-weight: 600;
     }
+}
+
+@media (min-width: 992px) {
+
+    header {
+        flex-wrap: nowrap;      
+    }
+
+    .header-wrapper {
+        text-align: left;
+        padding: 0 20px;
+        flex: 1 1 200px;
+        border-right: 2px solid #01BDD6; 
+    }
     
-    header .header-signup {
-        display: none;
+    .header-logo {
+        max-width: 100%;
+    }
+
+    .header-nav ul {
+        justify-self: start;
+        padding: 0;
+        margin: 10px;    
+    }
+
+    .header-nav ul li {
+        margin: 20px;    
+    }
+    
+    .header-nav ul li a{
+        font-size: 20px;
+        color: #182E67;
+        font-weight: 600;
     }
 }
 
 /* HERO: Mobile-First Responsive Design:*/
-section.hero {
+.hero {
     grid-area: hero;
     display: flex;
     flex-wrap: wrap;
@@ -128,7 +176,7 @@ section.hero {
     color: #ffffff;
 }
 
-h1.hero-heading  {
+.hero-heading  {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 900;
     text-align: center;
@@ -137,7 +185,7 @@ h1.hero-heading  {
     width: 350px;
 }
 
-h2.hero-subheading {
+.hero-subheading {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 100;
     font-style: italic;
@@ -146,7 +194,7 @@ h2.hero-subheading {
     width: 450px;
 }
 
-button.hero-cta {
+.hero-cta-btn {
     width: 30%;
     height: 48px;
     border: 1px solid #ffffff;
@@ -160,28 +208,28 @@ button.hero-cta {
 
 /* HERO: Desktop Responsive Design:*/
 @media (min-width: 768px) {
-    section.hero {
+    .hero {
         flex-direction: column;
         height: 500px;
     }
 
-    h1.hero-heading {
+    .hero-heading {
         font-size: 3rem;
         width: 650px;
     }
 
-    h2.hero-subheading {
+    .hero-subheading {
         font-size: 1.5rem;
         width: 600px;
     }
 
-    button.hero-cta {
+    .hero-cta-btn {
         width: 10%;
     }
 }
 
 /* FEATURES: Mobile-First Responsive Design:*/
-h2.features-heading {
+.features-heading {
     text-align: center;
     margin: 10px 0;
 }
@@ -190,7 +238,7 @@ h2.features-heading {
     grid-area: features;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
 }
 
@@ -199,22 +247,23 @@ h2.features-heading {
     padding: 0 10px;
 }
 
-img.feature-img {
-    max-width: 100%;
+.feature-img {
+    /* max-width: 100%; */
+    max-width: calc(100vw - 20px);
 }
 
-h3.feature-title {
+.feature-title {
     color: #111111;
 }
 
-p.feature-description {
+.feature-description {
     text-align: justify;
 }
 
 /* FEATURES: Desktop Responsive Design:*/
 @media (min-width: 768px) {
 
-    h2.features-heading {
+    .features-heading {
         font-size: 2rem;
     }
     
@@ -226,7 +275,7 @@ p.feature-description {
         text-align: center;
     }
 
-    img.feature-img {
+    .feature-img {
         width: 400px;
         height: 300px;
     }
@@ -243,15 +292,13 @@ footer {
     color: #ffffff;
     margin-top: 10px;
     margin-bottom: 0px;
+    padding-bottom: 10px;
 }
 
-footer .contact-title {
+.footer-contact-title {
     color: #ffffff;
 }
 
-footer.grid-item {
-    margin-bottom: 0;
-}
 footer ul li {
     list-style: none;    
 }
@@ -271,7 +318,7 @@ footer p {
         font-size: 20px;
     }
 
-    h3.contact-title {
+    footer-contact-title {
         font-size: 1.5rem;
     }
 }
